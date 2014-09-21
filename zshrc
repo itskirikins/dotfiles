@@ -14,8 +14,9 @@
 export PATH=".:$HOME/bin:/usr/local/bin:$PATH"
 
 # Load oh-my-zsh
-#export ZSH="$HOME/.oh-my-zsh/"
-#plugins=(git brew)
+export ZSH="$HOME/.oh-my-zsh/"
+export CASE_SENSITIVE="true"
+plugins=(git brew)
 #source $ZSH/oh-my-zsh.sh
 
 # Load utility colors
@@ -114,14 +115,14 @@ alias gll="git log --pretty=oneline --graph --decorate --abbrev-commit --all"
 
 # ----- per machine setup ----------------------------------------------------
 case `hostname` in
-  *Jacobs-MacBook-Air*)
+  *audasias-air*)
     # GNU coreutils with their actual names
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
     # aliases 
-    alias resethostname='sudo scutil --set HostName Jacobs-MacBook-Air'
-    alias kinitandrew="kinit jezimmer@ANDREW.CMU.EDU"
+    alias resethostname='sudo scutil --set HostName audasias-air'
+    alias kinitandrew="kinit audasiah@ANDREW.CMU.EDU"
     alias vim="/usr/local/bin/vim"
     alias sml="rlwrap sml"
     which coffee &> /dev/null && alias coffe="coffee"
@@ -146,6 +147,7 @@ case `hostname` in
     # Source files that make working on these servers easier
     #source ~/.bashrc_gpi;
     export PATH="$PATH:/afs/club/contrib/bin";
+    alias sml="rlwrap sml"
     ;;
   alarmpi)
     ;;
@@ -195,7 +197,7 @@ update() {
 
   # Mac updates
   case `hostname` in
-    *Jacobs-MacBook-Air*)
+    *audasias-air*)
       echo "$cblueb==>$cwhiteb Updating Homebrew...$cnone"
       brew update
 
@@ -303,9 +305,10 @@ vi-search-fix() {
 zstyle :compinstall filename $HOME/.zshrc
 
 ## case-insensitive (all),partial-word and then substring completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
-      'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*:*:*:*:*' menu ''
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={a-zA-Z}' #'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' verbose false
 
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
