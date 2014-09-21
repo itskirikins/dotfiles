@@ -114,14 +114,14 @@ alias gll="git log --pretty=oneline --graph --decorate --abbrev-commit --all"
 
 # ----- per machine setup ----------------------------------------------------
 case `hostname` in
-  *Jacobs-MacBook-Air*)
+  *audasias-air*)
     # GNU coreutils with their actual names
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
     # aliases 
-    alias resethostname='sudo scutil --set HostName Jacobs-MacBook-Air'
-    alias kinitandrew="kinit jezimmer@ANDREW.CMU.EDU"
+    alias resethostname='sudo scutil --set HostName audasias-air'
+    alias kinitandrew="kinit audasiah@ANDREW.CMU.EDU"
     alias vim="/usr/local/bin/vim"
     alias sml="rlwrap sml"
     which coffee &> /dev/null && alias coffe="coffee"
