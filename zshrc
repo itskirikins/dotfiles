@@ -44,10 +44,10 @@ fi
 
 time_since_check=$((time_now - last_login))
 
-if [ "$time_since_check" -ge 86400 ]; then
-  echo "$cred==>$cwhiteb Your system is out of date!$cnone"
-  echo 'Run `update` to bring it up to date.'
-fi
+#if [ "$time_since_check" -ge 86400 ]; then
+#  echo "$cred==>$cwhiteb Your system is out of date!$cnone"
+#  echo 'Run `update` to bring it up to date.'
+#fi
 
 # ============================================================================
 # ============================================================================
