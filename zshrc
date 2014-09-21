@@ -14,8 +14,9 @@
 export PATH=".:$HOME/bin:/usr/local/bin:$PATH"
 
 # Load oh-my-zsh
-#export ZSH="$HOME/.oh-my-zsh/"
-#plugins=(git brew)
+export ZSH="$HOME/.oh-my-zsh/"
+export CASE_SENSITIVE="true"
+plugins=(git brew)
 #source $ZSH/oh-my-zsh.sh
 
 # Load utility colors
@@ -146,6 +147,7 @@ case `hostname` in
     # Source files that make working on these servers easier
     #source ~/.bashrc_gpi;
     export PATH="$PATH:/afs/club/contrib/bin";
+    alias sml="rlwrap sml"
     ;;
   alarmpi)
     ;;
@@ -303,9 +305,10 @@ vi-search-fix() {
 zstyle :compinstall filename $HOME/.zshrc
 
 ## case-insensitive (all),partial-word and then substring completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
-      'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*:*:*:*:*' menu ''
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={a-zA-Z}' #'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' verbose false
 
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
